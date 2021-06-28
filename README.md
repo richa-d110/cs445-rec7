@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab, you will design, implement, and test a backtracking algorithm.
+In this recitation, you will design, implement, and test a backtracking algorithm.
 The primary goal is to practice devising a backtracking solution to solve a problem, `8 Queens`, that would be very difficult for an iterative approach and then implementing that solution in code.
 Recall the main idea to devising a backtracking solution:
 
