@@ -10,7 +10,18 @@ public class Queens {
      */
     public static boolean isFullSolution(int[] partial) {
         // TODO: Implement this method
-        return false;
+
+
+        for(int i = 7; i >= 0; i--){
+            if(partial[i] == 0){
+                return false;
+            }
+        }
+        return true;
+        // if(partial[7] == 0){
+        //     return false;
+        // }
+        // return true;
     }
 
     /**
@@ -21,6 +32,25 @@ public class Queens {
      */
     public static boolean reject(int[] partial) {
         // TODO: Implement this method
+        for(int i = 0; i < 0; i++){
+            for(int j = 0; j < i; j++){
+                if(partial[i] == 0 || partial[j] == 0){
+                    return false;
+                }
+                else if((i != j) && (partial[i] == partial[j])){
+                    //in the same row
+                    return true;
+                }
+                else if(partial[j] - partial[i] == j - i){
+                    //postiive diagonal case
+                    return true;
+                }
+                else if(partial[j] - partial[i] == i - j){
+                    //negative diagonal case
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
@@ -31,7 +61,18 @@ public class Queens {
      */
     public static int[] extend(int[] partial) {
         // TODO: implement this method
-        return null;
+        int[] temp = new int[8];
+        for(int i = 0; i < 8; i++){
+            if(partial[i] == 0){
+                temp[i] = 1;
+                return temp;
+            }
+            else{
+                temp[i] = partial[i];
+            }
+        }
+        
+        return null; //cannot extend
     }
 
     /**
@@ -42,7 +83,25 @@ public class Queens {
      */
     public static int[] next(int[] partial) {
         // TODO: implement this method
-        return null;
+        int[] temp = new int[8];
+        int i = 0;
+        while(i < 8){
+            if(i == 7 || partial[i+1] == 0){
+                if(partial[i] >= 8){
+                    return null;
+                }
+                else{
+                    temp[i] = partial[i] + 1;
+                    break;
+                }
+            }
+            else{
+                //this is not the last queen
+                temp[i] = partial[i];
+            }
+            i++;
+        }
+        return temp;
     }
 
     /**
